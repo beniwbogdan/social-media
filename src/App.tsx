@@ -1,8 +1,6 @@
 import React from 'react';
 import './App.css';
-import Technologies from "./Technologies/Technologies";
 import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
 import Navbar from "./Navbar/Navbar";
 import Profile from "./Profile/Profile";
 
