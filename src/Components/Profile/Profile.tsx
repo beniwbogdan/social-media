@@ -1,10 +1,12 @@
 import React from 'react';
-import "./Profile.css";
-
+import "./Profile.module.css";
+const p={
+    "content":"Profile_content__Mzpov"
+}
 const Profile = () => {
     return (
 
-        <div className={"content"}>
+        <div className={p.content}>
             <div>
                 <img src="https://wallpaper.dog/large/20536905.jpg" alt=""/>
             </div>
