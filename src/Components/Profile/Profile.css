@@ -1,0 +1,12 @@
+.content {
+    grid-area: c;
+    background-color: aliceblue;
+}
+
+.content img {
+    height: 150px;
+    width: 100%;
+    opacity: 0.8;
+}
+
+
