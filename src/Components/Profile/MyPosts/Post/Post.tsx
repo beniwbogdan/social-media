@@ -1,11 +1,15 @@
 import React from 'react';
 import p from "./Post.module.css"
 
-const Post = () => {
+const Post = (props:any) => {
     return (
         <div className={p.item}>
             <img className={p.item} src="https://iconape.com/wp-content/png_logo_vector/react.png" alt=""/>
-            Hi, this is my first post
+           <div className={p.textMessage}>
+               {props.message}
+           </div>
+            <span>Like</span>
+
         </div>
     );
 };
