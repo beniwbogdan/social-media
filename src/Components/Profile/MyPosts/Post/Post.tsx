@@ -5,7 +5,8 @@ const Post = () => {
     return (
         <div className={p.item}>
             <img className={p.item} src="https://iconape.com/wp-content/png_logo_vector/react.png" alt=""/>
-            Hi, this is my first post</div>
+            Hi, this is my first post
+        </div>
     );
 };
 
