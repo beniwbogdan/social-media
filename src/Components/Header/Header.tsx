@@ -1,9 +1,9 @@
 import React from 'react';
-import "./Header.module.css";
-const h={
-    "header":'Header_header__ZE\+O1',
-    "App-logo":"Header_App-logo__YnPVu"
-}
+import h from "./Header.module.css";
+// const h={
+//     "header":'Header_header__ZE\+O1',
+//     "App-logo":"Header_App-logo__YnPVu"
+// }
 const Header = () => {
     return (
         <header className={h.header}>

@@ -1,0 +1,30 @@
+.posts {
+    color: aqua;
+}
+
+textarea {
+    display: flex;
+    margin: 0 auto;
+    width: 50%;
+    height: 100px;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    margin: 22px auto;
+    height: 30px;
+    width: 80px;
+    align-items: center;
+}
+
+button:hover {
+    display: flex;
+    justify-content: center;
+    width: 80px;
+    margin: 22px auto;
+    height: 30px;
+    align-items: center;
+    background-color: rgb(97, 218, 251);
+    border: 1px solid;
+}

@@ -1,10 +1,10 @@
 import React from 'react';
-import "./Navbar.module.css";
-const n = {
-    "nav":"Navbar_nav__rfPBT",
-    "item":"Navbar_item__68eYL",
-    "active":"Navbar_active__gZRKD"
-}
+import n from "./Navbar.module.css";
+// const n = {
+//     "nav":"Navbar_nav__rfPBT",
+//     "item":"Navbar_item__68eYL",
+//     "active":"Navbar_active__gZRKD"
+// }
 const Navbar = () => {
     return (
 

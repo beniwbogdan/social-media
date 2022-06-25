@@ -1,0 +1,21 @@
+.item{
+    color: black;
+}
+.item img{
+    width: 40px;
+    height: 40px;
+}
+@media (prefers-reduced-motion: no-preference) {
+    .item img{
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}

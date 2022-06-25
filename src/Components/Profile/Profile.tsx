@@ -1,10 +1,10 @@
 import React from 'react';
-import "./Profile.module.css";
-import MyPosts from "./MyPosts/Posts/MyPosts";
- const p={
-    "content":"Profile_content__Mzpov",
-
-}
+import p from  "./Profile.module.css";
+import MyPosts from "./MyPosts/MyPosts";
+//  const p={
+//     "content":"Profile_content__Mzpov",
+//
+// }
 const Profile = () => {
     return (
 
