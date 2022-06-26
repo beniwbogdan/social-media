@@ -19,9 +19,9 @@ const MyPosts = () => {
             </div>
 
             <div className={p.posts}>
-                <Post message={"Hello, this is my 1 post through the props"}/>
-                <Post message={"Hello, this is my 2 post through the props"}/>
-                <Post message={"Hello, this is my 3 post through the props"}/>
+                <Post message={"Hello, this is my 1 post through the props"} likeCounter={"Like"}/>
+                <Post message={"Hello, this is my 2 post through the props"} likeCounter={"Like"}/>
+                <Post message={"Hello, this is my 3 post through the props"} likeCounter={"Like"}/>
             </div>
         </div>
     );
