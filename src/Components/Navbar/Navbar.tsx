@@ -9,8 +9,8 @@ const Navbar = () => {
     return (
 
         <nav className={n.nav}>
-            <div className={n.item}><a href="#s">Profile</a></div>
-            <div className={`${n.item} ${n.active}`}><a href="#s">Messages</a></div>
+            <div className={n.item}><a href="profile">Profile</a></div>
+            <div className={`${n.item} ${n.active}`}><a href="dialogs">Messages</a></div>
             <div className={n.item}><a href="#s">News</a></div>
             <div className={n.item}><a href="#s">Music</a></div>
             <div className={n.item}><a href="#s">Settings</a></div>
