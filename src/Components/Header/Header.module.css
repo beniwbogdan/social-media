@@ -6,14 +6,17 @@
 
 header img {
     width: 60px;
+
+
 }
 
 /*rotating img*/
 .App-logo {
     display: flex;
-
+    flex-direction: row;
     margin: 0 auto;
 }
+
 
 .App-logo:hover {
     filter: invert(70%);

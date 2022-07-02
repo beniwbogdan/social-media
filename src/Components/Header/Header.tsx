@@ -7,8 +7,11 @@ import h from "./Header.module.css";
 const Header = () => {
     return (
         <header className={h.header}>
-            <img className={h["App-logo"]} src="https://iconape.com/wp-content/png_logo_vector/react.png" alt=""/>
-        </header>
+            <div>
+                <img className={h["App-logo"]}
+                     src="https://cdn.pixabay.com/photo/2021/02/25/14/12/rinnegan-6049194_640.png" alt=""/>
+            </div>
+            </header>
 
     );
 };
