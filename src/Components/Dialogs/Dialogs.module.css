@@ -1,0 +1,23 @@
+.dialogs{
+    display: flex;
+    justify-content: center;
+    min-height: 100px;
+    background-color: aliceblue;
+    gap: 5px;
+}
+.users{
+    display: flex;
+    background-color: lightgray;
+    width: 30%;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.chats{
+    display: flex;
+    background-color: lightgray;
+    width: 70%;
+    flex-direction: row;
+    justify-content: center;
+
+}
