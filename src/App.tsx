@@ -13,8 +13,8 @@ function App() {
                 <Header/>
                 <Navbar/>
                 <Routes>
-                    <Route path="/profile" element={<Profile/>}></Route>
-                    <Route path="/dialogs" element={<Dialogs/>}></Route>
+                    <Route  path="/profile" element={<Profile/>}></Route>
+                    <Route  path="/dialogs" element={<Dialogs/>}></Route>
                 </Routes>
             </div>
         </BrowserRouter>

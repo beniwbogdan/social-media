@@ -1,12 +1,28 @@
 .header {
     grid-area: h;
-    background-color: aliceblue;
-
+    background-color: #A8ADD3;
 }
 
+.header .eyePosition{
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    margin-left: 45%;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: #76526C;
+}
+
+/*.header .eye {*/
+/*  */
+/*    flex-direction: row;*/
+/*    width: 100px;*/
+/*    height: 20px;*/
+/*    background-color: white;*/
+/*    position: absolute;*/
+/*}*/
 header img {
     width: 60px;
-
 
 }
 

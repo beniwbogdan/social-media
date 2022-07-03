@@ -7,9 +7,12 @@ import h from "./Header.module.css";
 const Header = () => {
     return (
         <header className={h.header}>
-            <div>
+            <div className={h.eyePosition}>
+                <div className={h.eye}></div>
+
                 <img className={h["App-logo"]}
                      src="https://cdn.pixabay.com/photo/2021/02/25/14/12/rinnegan-6049194_640.png" alt=""/>
+                <div className={h.eye}></div>
             </div>
             </header>
 
