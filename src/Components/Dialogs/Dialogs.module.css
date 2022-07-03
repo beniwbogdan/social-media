@@ -1,23 +1,99 @@
-.dialogs{
+.dialogs {
     display: flex;
     justify-content: center;
     min-height: 100px;
     background-color: aliceblue;
     gap: 5px;
 }
-.users{
+
+.users {
     display: flex;
     background-color: lightgray;
     width: 30%;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-
+    text-align: center;
 }
-.chats{
+
+.users .items {
+    display: flex;
+    /*padding:40px 0px 5px 20px;*/
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+}
+
+.users span {
+    border-bottom: 1px solid black;
+}
+
+.users .items:hover {
+    display: flex;
+    /*padding:40px 0px 5px 20px;*/
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    background-color: #61dafb;
+}
+
+.chats {
     display: flex;
     background-color: lightgray;
     width: 70%;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: start;
+    text-align: center;
+    padding-left: 20px;
+}
 
+
+/*.chats {*/
+/*    display: flex;*/
+/*    background-color: lightgray;*/
+/*    width: 70%;*/
+/*    flex-direction: row;*/
+/*    justify-content: center;*/
+
+/*}*/
+
+.chats span {
+    border-bottom: 1px solid black;
+}
+.chats .chat {
+    display: flex;
+    /*padding:40px 0px 5px 20px;*/
+    height: 40px;
+    align-items: center;
+    justify-content: start;
+    margin: 2px;
+}
+.chats .chat:hover {
+    display: flex;
+    /*padding:40px 0px 5px 20px;*/
+    height: 40px;
+    align-items: center;
+    justify-content: start;
+    margin: 2px;
+    background-color: #61dafb;
+}
+.item img{
+    width: 40px;
+    height: 40px;
+    border: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+    .item img{
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
 }
