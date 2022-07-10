@@ -3,39 +3,26 @@ import d from "./Dialogs.module.css"
 import {NavLink} from "react-router-dom";
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
+import {dialogData,messagesData} from "./../../index"
 
 
 
-// const DialogItem = (props: any) => {
-//     let path = "/dialogs/" + props.id;
-//     return (
-//         <>
-//             <div className={d.items}><img src="https://iconape.com/wp-content/png_logo_vector/react.png"
-//                                           alt=""/><NavLink to={path}> {props.name}</NavLink></div>
-//         </>);
-// }
 
-// const Message = (props: any) => {
-//     return (
-//         <div className={d.dialog}><img src="https://iconape.com/wp-content/png_logo_vector/react.png"
-//                                        alt=""/>{props.message}
-//         </div>
-//     );
-// }
+
 const Dialogs = (props: any) => {
 
-    let dialogData = [
-        {name: "John", id: 1},
-        {name: "Jerry", id: 2},
-        {name: "Andrea", id: 3},
-        {name: "Lois", id: 4},
-        {name: "Anatoliy", id: 5},
-    ]
-    let messagesData = [
-        {message: "Hello buddy", id: 1},
-        {message: "Go to the stroll today?", id: 2},
-        {message: "Do you learned something from React today ?", id: 3},
-    ]
+    // let dialogData = [
+    //     {name: "John", id: 1},
+    //     {name: "Jerry", id: 2},
+    //     {name: "Andrea", id: 3},
+    //     {name: "Lois", id: 4},
+    //     {name: "Anatoliy", id: 5},
+    // ]
+    // let messagesData = [
+    //     {message: "Hello buddy", id: 1},
+    //     {message: "Go to the stroll today?", id: 2},
+    //     {message: "Do you learned something from React today ?", id: 3},
+    // ]
 
     return (
         <div className={d.dialogs}>
