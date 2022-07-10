@@ -3,7 +3,7 @@ import d from "./Dialogs.module.css"
 import {NavLink} from "react-router-dom";
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
-import {dialogData,messagesData} from "./../../index"
+//import {dialogData,messagesData} from "./../../index"
 
 
 
@@ -29,7 +29,7 @@ const Dialogs = (props: any) => {
             <div className={d.users}><span>USERS:</span>
                 <div className={d.item}>
                     {
-                        dialogData.map((w, index, array) => {
+                        props.dialogData.map((w:any) => {
                             return (
                                 <DialogItem name={w.name} id={w.id}/>
                             );
@@ -41,7 +41,7 @@ const Dialogs = (props: any) => {
             <div className={d.chats}><span>DIALOGS:</span>
                 <div className={d.item}>
                     {
-                        messagesData.map(w => {
+                        props.messagesData.map((w:any) => {
                             return (
                                 <Message message={w.message}/>
                             );

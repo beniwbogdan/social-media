@@ -1,9 +1,9 @@
 import React from 'react';
 import p from "./MyPosts.module.css"
 import Post from "./Post/Post";
-import {postData} from "./../../../index"
+//import {postData} from "./../../../index"
 
-const MyPosts = () => {
+const MyPosts = (props:any) => {
 
     // let postData = [
     //     {message: "Hello, this is my 1 post through the props", id: 1, likesCount:23},
@@ -24,7 +24,7 @@ const MyPosts = () => {
 
             <div className={p.posts}>
                 {
-                    postData.map(w=>{
+                    props.postData.map((w:any)=>{
                         return(
                             <Post message={w.message} likeCounter={w.likesCount}/>
                         );
