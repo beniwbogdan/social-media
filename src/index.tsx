@@ -7,7 +7,7 @@ import state from "./redux/state.js";
 
 ReactDOM.render(
     <App
-        state={state}
+        appState={state}
         // dialogData={state.dialogData}
         // messagesData={state.messagesData}
         // postData={state.postData}
