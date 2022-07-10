@@ -1,24 +1,27 @@
 import React from 'react';
 import d from "./Dialogs.module.css"
 import {NavLink} from "react-router-dom";
+import Message from "./Message/Message";
+import DialogItem from "./DialogItem/DialogItem";
 
 
 
-const DialogItem = (props: any) => {
-    let path = "/dialogs/" + props.id;
-    return (
-        <>
-            <div className={d.items}><img src="https://iconape.com/wp-content/png_logo_vector/react.png"
-                                          alt=""/><NavLink to={path}> {props.name}</NavLink></div>
-        </>);
-}
-const Message = (props: any) => {
-    return (
-        <div className={d.dialog}><img src="https://iconape.com/wp-content/png_logo_vector/react.png"
-                                       alt=""/>{props.message}
-        </div>
-    );
-}
+// const DialogItem = (props: any) => {
+//     let path = "/dialogs/" + props.id;
+//     return (
+//         <>
+//             <div className={d.items}><img src="https://iconape.com/wp-content/png_logo_vector/react.png"
+//                                           alt=""/><NavLink to={path}> {props.name}</NavLink></div>
+//         </>);
+// }
+
+// const Message = (props: any) => {
+//     return (
+//         <div className={d.dialog}><img src="https://iconape.com/wp-content/png_logo_vector/react.png"
+//                                        alt=""/>{props.message}
+//         </div>
+//     );
+// }
 const Dialogs = (props: any) => {
 
     let dialogData = [
