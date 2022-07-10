@@ -15,7 +15,7 @@ function App(props:any) {
                 <Header/>
                 <Navbar/>
                 <Routes>
-                    <Route  path="/profile" element={<Profile appState={props.appState.profilePage} />}></Route>
+                    <Route  path="/profile" element={<Profile addPost={props.addPost} appState={props.appState.profilePage} />}></Route>
                     <Route  path="/dialogs" element={<Dialogs appState={props.appState.messagesPage} />}></Route>
                 </Routes>
             </div>
