@@ -10,7 +10,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 function App(props:any) {
 
     return (
-        <BrowserRouter>
+        <>
             <div className="app-wrapper">
                 <Header/>
                 <Navbar/>
@@ -19,7 +19,7 @@ function App(props:any) {
                     <Route  path="/dialogs" element={<Dialogs appState={props.appState.messagesPage} />}></Route>
                 </Routes>
             </div>
-        </BrowserRouter>
+        </>
             );
 
             }

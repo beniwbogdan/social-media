@@ -1,6 +1,6 @@
 import {v1} from "uuid";
-import React from "react";
-import {newPostElementTextarea} from "./../Components/Profile/MyPosts/MyPosts"
+import {rerenderEntireTree} from "../render";
+
 let state = {
     profilePage: {
         postData: [
@@ -32,6 +32,7 @@ export let addPost = (postMessage) => {
         likesCount: 0
     }
     state.profilePage.postData.push(newPost);
+    rerenderEntireTree(state);
 }
 
 export default state
