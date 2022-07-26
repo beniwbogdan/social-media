@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/beniwbogdan.github.io/social-media/static/css/main.193d2b3a.css",
+    "main.js": "/beniwbogdan.github.io/social-media/static/js/main.8fc84e15.js",
+    "index.html": "/beniwbogdan.github.io/social-media/index.html",
+    "main.193d2b3a.css.map": "/beniwbogdan.github.io/social-media/static/css/main.193d2b3a.css.map",
+    "main.8fc84e15.js.map": "/beniwbogdan.github.io/social-media/static/js/main.8fc84e15.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.193d2b3a.css",
+    "static/js/main.8fc84e15.js"
+  ]
+}
