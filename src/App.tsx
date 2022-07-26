@@ -4,10 +4,10 @@ import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import Profile from "./Components/Profile/Profile";
 import Dialogs from "./Components/Dialogs/Dialogs";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 
 
-function App(props:any) {
+function App(props: any) {
 
     return (
         <>
@@ -15,13 +15,14 @@ function App(props:any) {
                 <Header/>
                 <Navbar/>
                 <Routes>
-                    <Route  path="/profile" element={<Profile addPost={props.addPost} appState={props.appState.profilePage} />}></Route>
-                    <Route  path="/dialogs" element={<Dialogs appState={props.appState.messagesPage} />}></Route>
+                    <Route path="/profile"
+                           element={<Profile addPost={props.addPost} appState={props.appState.profilePage}/>}></Route>
+                    <Route path="/dialogs" element={<Dialogs appState={props.appState.messagesPage}/>}></Route>
                 </Routes>
             </div>
         </>
-            );
+    );
 
-            }
+}
 
-            export default App;
+export default App;
