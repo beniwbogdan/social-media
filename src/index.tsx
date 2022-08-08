@@ -11,7 +11,7 @@ let rerenderEntireTree = (state: any) => {
         <BrowserRouter>
             <App
                 addPost={store.addPost}
-                appState={store.getState}
+                appState={store.getState()}
                 updateNewPostText={store.updateNewPostText}
             />
         </BrowserRouter>
@@ -19,6 +19,6 @@ let rerenderEntireTree = (state: any) => {
         document.getElementById('root')
     );
 }
-rerenderEntireTree(store.getState);
+rerenderEntireTree(store.getState());
 
 store.subscribe(rerenderEntireTree);
