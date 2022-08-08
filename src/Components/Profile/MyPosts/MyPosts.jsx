@@ -12,7 +12,7 @@ const MyPosts = (props) => {
     let addPost = () => {
         let text = newPostElementTextarea.current.value;
         props.addPost(text);
-        props.updateNewPostText("");
+
     }
 
     let onPostChange = () => {
