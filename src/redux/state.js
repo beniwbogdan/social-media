@@ -22,12 +22,35 @@ let store = {
                 {message: "Do you learned something from React today ?", id: v1()},
             ]
         }
-    }
+    },
+    getState(){
+        return this._state
+    },
+    rerenderEntireTree(){
 
+    },
+    addPost (postMessage){
+        let newPost = {
+            id: v1(),
+            message: postMessage,
+            likesCount: 0
+        }
+        this.store._state.profilePage.postData.push(newPost);
+        this.store._state.profilePage.newPostText="";
+        this.rerenderEntireTree(this.store._state);
+    },
+    updateNewPostText(newText){
+        this.store._state.profilePage.newPostText=newText;
+        this.rerenderEntireTree(this.store._state);
+    },
+    subscribe(observer){
+    this.rerenderEntireTree=observer;
 }
 
+}
+export default store
 
-let rerenderEntireTree=()=>{}
+// let rerenderEntireTree=()=>{}
 
 // let state = {
 //     profilePage: {
@@ -52,26 +75,25 @@ let rerenderEntireTree=()=>{}
 //     }
 // }
 
-export let addPost = (postMessage) => {
-    let newPost = {
-        id: v1(),
-        message: postMessage,
-        likesCount: 0
-    }
-    store.state.profilePage.postData.push(newPost);
-    store.state.profilePage.newPostText="";
-    rerenderEntireTree(store.state);
+// export let addPost = (postMessage) => {
+//     let newPost = {
+//         id: v1(),
+//         message: postMessage,
+//         likesCount: 0
+//     }
+//     store.state.profilePage.postData.push(newPost);
+//     store.state.profilePage.newPostText="";
+//     rerenderEntireTree(store.state);
     
     
-}
-export let updateNewPostText = (newText) => {
+// }
+// export let updateNewPostText = (newText) => {
    
-    store.state.profilePage.newPostText=newText;
-    rerenderEntireTree(store.state);
+//     store.state.profilePage.newPostText=newText;
+//     rerenderEntireTree(store.state);
     
-}
+// }
 
-export const subscribe=(observer)=>{
-    rerenderEntireTree=observer;
-}
-export default store.state
+// export const subscribe=(observer)=>{
+//     rerenderEntireTree=observer;
+// }
