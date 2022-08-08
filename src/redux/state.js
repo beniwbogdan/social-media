@@ -7,7 +7,7 @@ let state = {
             {message: "Hello, this is my 1 post through the props", id: v1(), likesCount: 23},
             {message: "Hello, this is my 2message post through the props", id: v1(), likesCount: 25},
             {message: "Hello, this is my 3 post through the props", id: v1(), likesCount: 27},
-        ]
+        ],newPostText:"FLUX data"
     },
     messagesPage: {
         dialogData: [
@@ -32,6 +32,12 @@ export let addPost = (postMessage) => {
     }
     state.profilePage.postData.push(newPost);
     rerenderEntireTree(state);
+    
 }
-
+export let updateNewPostText = (newText) => {
+   
+    state.profilePage.newPostText=newText;
+    rerenderEntireTree(state);
+    
+}
 export default state
