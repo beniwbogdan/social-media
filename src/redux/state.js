@@ -1,7 +1,7 @@
 import {v1} from "uuid";
 
 let store = {
-     state : {
+     _state : {
         profilePage: {
             postData: [
                 {message: "Hello, this is my 1 post through the props", id: v1(), likesCount: 23},
