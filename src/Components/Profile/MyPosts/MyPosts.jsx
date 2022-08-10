@@ -1,15 +1,9 @@
 import React from 'react';
 import p from "./MyPosts.module.css"
 import Post from "./Post/Post";
-export let newPostElementTextarea = React.createRef();
+import { addPostsActionCreator, onPostChangeActionCreator } from "../../../redux/state";
 
-let addPostsActionCreator = () => ({
-    type: "ADD-POST"
-})
-let onPostChangeActionCreator = (text) => ({
-    type: "UPDATE-NEW-POST-TEXT",
-    newText: text
-})
+export let newPostElementTextarea = React.createRef();
 
 const MyPosts = (props) => {
 
