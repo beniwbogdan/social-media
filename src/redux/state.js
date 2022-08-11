@@ -1,5 +1,8 @@
 import {v1} from "uuid";
 
+let ADD_POST ="ADD-POST";
+let UPDATE_NEW_POST_TEXT="UPDATE-NEW-POST-TEXT";
+
 let store = {
      _state : {
         profilePage: {
@@ -66,13 +69,17 @@ let store = {
 }
 
 
-export const addPostsActionCreator = () => ({
-    type: "ADD-POST"
-})
-export const onPostChangeActionCreator = (text) => ({
-    type: "UPDATE-NEW-POST-TEXT",
-    newText: text
-})
+export const addPostsActionCreator = () => {
+    return {
+        type: ADD_POST
+    }
+}
+export const onPostChangeActionCreator = (text) => {
+    return {
+        type: UPDATE_NEW_POST_TEXT,
+        newText: text
+    }
+}
 
 export default store
 
