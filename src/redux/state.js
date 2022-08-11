@@ -1,7 +1,9 @@
 import {v1} from "uuid";
 
-let ADD_POST ="ADD-POST";
-let UPDATE_NEW_POST_TEXT="UPDATE-NEW-POST-TEXT";
+const ADD_POST ="ADD-POST";
+const UPDATE_NEW_POST_TEXT="UPDATE-NEW-POST-TEXT";
+const UPDATE_NEW_MESSAGE_BODY ="UPDATE-NEW-MESSAGE-BODY";
+const SEND_MESSAGE ="SEND-MESSAGE";
 
 let store = {
      _state : {
@@ -23,8 +25,10 @@ let store = {
                 {message: "Hello buddy", id: v1()},
                 {message: "Go to the stroll today?", id: v1()},
                 {message: "Do you learned something from React today ?", id: v1()},
-            ]
-        }
+            ],
+            newMessageBody:""
+        },
+        sidebar:{}
     },
     _callSubscriber(){
 
@@ -51,7 +55,7 @@ let store = {
     this._callSubscriber=observer;
     },
     dispatch(action){
-        if(action.type==='ADD-POST'){
+        if(action.type===ADD_POST){
             let newPost = {
                 id: v1(),
                 message: this._state.profilePage.newPostText,
@@ -61,26 +65,40 @@ let store = {
             this._state.profilePage.newPostText="";
             this._callSubscriber(this._state);
 
-        }else if(action.type==='UPDATE-NEW-POST-TEXT'){
+        }else if(action.type===UPDATE_NEW_POST_TEXT){
         this._state.profilePage.newPostText=action.newText;
         this._callSubscriber(this._state);
+        }else if(action.type===UPDATE_NEW_MESSAGE_BODY){
+            this._state.messagesPage.newMessageBody=action.body;
+            this._callSubscriber(this._state);
+        }else if(action.type===SEND_MESSAGE){
+            let body = this._state.messagesPage.newMessageBody;
+            this._state.messagesPage.newMessageBody="";
+            this._state.messagesPage.messagesData.push({message:body, id:v1});
+            this._callSubscriber(this._state);
         }
     }
 }
 
 
-export const addPostsActionCreator = () => {
-    return {
-        type: ADD_POST
-    }
-}
-export const onPostChangeActionCreator = (text) => {
-    return {
+export const addPostsActionCreator = () => ({
+        type: ADD_POST,
+    
+})
+export const onPostChangeActionCreator = (text) => ({
         type: UPDATE_NEW_POST_TEXT,
         newText: text
-    }
-}
+    
+})
 
+
+export const updateNewMessageBodyCreator = () => ({
+    body: UPDATE_NEW_MESSAGE_BODY,
+})
+export const sendMessageCreator = (text) => ({
+    type: SEND_MESSAGE,
+    newText: text
+})
 export default store
 
 // let rerenderEntireTree=()=>{}
