@@ -13,7 +13,7 @@
     background-color: lightgray;
     width: 30%;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     text-align: center;
 
 }

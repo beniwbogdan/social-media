@@ -16,15 +16,19 @@ function App(props: any) {
                 <Navbar />
                 <Routes>
                     <Route path="/profile"
-                        element={<Profile
-                            // addPost={props.addPost}
-                            profilePage={props.appState.profilePage}
-                            dispatch={props.dispatch}
-                        />}>
+                        element={
+                            <Profile
+                                // addPost={props.addPost}
+                                profilePage={props.appState.profilePage}
+                                dispatch={props.dispatch}
+                            />}>
 
                     </Route>
-                    <Route path="/dialogs" element={<Dialogs
-                        appState={props.appState.messagesPage} />}>
+                    <Route path="/dialogs" element={
+                        <Dialogs
+                            store={props.store}
+                        // appState={props.appState.messagesPage} 
+                        />}>
                     </Route>
                 </Routes>
             </div>
