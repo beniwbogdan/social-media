@@ -1,4 +1,7 @@
 import {v1} from "uuid";
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import sidebarReducer from "./sidebar-reducer";
 
 const ADD_POST ="ADD-POST";
 const UPDATE_NEW_POST_TEXT="UPDATE-NEW-POST-TEXT";
@@ -55,28 +58,12 @@ let store = {
     this._callSubscriber=observer;
     },
     dispatch(action){
-        if(action.type===ADD_POST){
-            let newPost = {
-                id: v1(),
-                message: this._state.profilePage.newPostText,
-                likesCount: 0
-            }
-            this._state.profilePage.postData.push(newPost);
-            this._state.profilePage.newPostText="";
-            this._callSubscriber(this._state);
-
-        }else if(action.type===UPDATE_NEW_POST_TEXT){
-        this._state.profilePage.newPostText=action.newText;
+        
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagesPage = dialogsReducer(this._state.messagesPage, action); 
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
         this._callSubscriber(this._state);
-        }else if(action.type===UPDATE_NEW_MESSAGE_BODY){
-            this._state.messagesPage.newMessageBody=action.body;
-            this._callSubscriber(this._state);
-        }else if(action.type===SEND_MESSAGE){
-            let body = this._state.messagesPage.newMessageBody;
-            this._state.messagesPage.newMessageBody="";
-            this._state.messagesPage.messagesData.push({message:body, id:v1});
-            this._callSubscriber(this._state);
-        }
+       
     }
 }
 
