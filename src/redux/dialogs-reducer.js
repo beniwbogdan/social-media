@@ -3,7 +3,21 @@ import { v1 } from "uuid";
 const UPDATE_NEW_MESSAGE_BODY ="UPDATE-NEW-MESSAGE-BODY";
 const SEND_MESSAGE ="SEND-MESSAGE";
 
-const dialogsReducer=(state, action)=>{
+let initialState ={
+    dialogData: [
+        {name: "John", id: v1()},
+        {name: "Jerry", id: v1()},
+        {name: "Andrea", id: v1()},
+        {name: "Lois", id: v1()},
+        {name: "Anatoliy", id: v1()},],
+    messagesData: [
+        {message: "Hello buddy", id: v1()},
+        {message: "Go to the stroll today?", id: v1()},
+        {message: "Do you learned something from React today ?", id: v1()},
+    ]
+}
+
+const dialogsReducer=(state = initialState, action)=>{
     switch(action.type){
         case UPDATE_NEW_MESSAGE_BODY: 
             state.newMessageBody=action.body;

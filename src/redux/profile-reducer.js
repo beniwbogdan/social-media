@@ -3,8 +3,14 @@ import { v1 } from "uuid";
 const ADD_POST ="ADD-POST";
 const UPDATE_NEW_POST_TEXT="UPDATE-NEW-POST-TEXT";
 
-
- const profileReducer=(state, action)=>{
+let initialState ={
+    postData: [
+        {message: "Hello, this is my 1 post through the props", id: v1(), likesCount: 23},
+        {message: "Hello, this is my 2message post through the props", id: v1(), likesCount: 25},
+        {message: "Hello, this is my 3 post through the props", id: v1(), likesCount: 27},
+    ],newPostText:"FLUX data"
+}
+ const profileReducer=(state=initialState, action)=>{
 
     switch(action.type){
         case ADD_POST: 
