@@ -1,6 +1,6 @@
 import d from "../Dialogs.module.css";
-import {NavLink} from "react-router-dom";
-import React from "react";
+import { NavLink } from "react-router-dom";
+
 
 const DialogItem = (props: any) => {
 
@@ -8,7 +8,7 @@ const DialogItem = (props: any) => {
     return (
         <>
             <div className={d.items}><img src="https://iconape.com/wp-content/png_logo_vector/react.png"
-                                          alt=""/><NavLink to={path}> {props.name}</NavLink></div>
+                alt="" /><NavLink to={path}> {props.name}</NavLink></div>
         </>);
 }
 export default DialogItem
