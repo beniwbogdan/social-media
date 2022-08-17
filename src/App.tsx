@@ -3,8 +3,8 @@ import './App.css';
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import Profile from "./Components/Profile/Profile";
-import Dialogs from "./Components/Dialogs/Dialogs";
 import { Route, Routes } from "react-router-dom";
+import DialogsContainer from './Components/Dialogs/DialogsContainer';
 
 
 function App(props: any) {
@@ -19,13 +19,14 @@ function App(props: any) {
                         element={
                             <Profile
                                 // addPost={props.addPost}
-                                profilePage={props.appState.profilePage}
-                                dispatch={props.dispatch}
+                                store={props.store}
+                            // profilePage={props.appState.profilePage}
+                            // dispatch={props.dispatch}
                             />}>
 
                     </Route>
                     <Route path="/dialogs" element={
-                        <Dialogs
+                        <DialogsContainer
                             store={props.store}
                         // appState={props.appState.messagesPage} 
                         />}>
