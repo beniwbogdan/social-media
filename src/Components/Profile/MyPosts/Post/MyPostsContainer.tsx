@@ -1,8 +1,6 @@
 import { addPostsActionCreator, onPostChangeActionCreator } from "../../../../redux/profile-reducer";
 import MyPosts from '../MyPosts';
 
-//export let newPostElementTextarea = React.createRef();
-
 function MyPostsContainer(props: any) {
 
     let state = props.store.getState();
@@ -11,7 +9,7 @@ function MyPostsContainer(props: any) {
         props.store.dispatch(addPostsActionCreator());
     }
 
-    let onPostChange = (text: any) => {
+    let onPostChange = (text: unknown) => {
         let action = onPostChangeActionCreator(text);
         props.store.dispatch(action);
     }

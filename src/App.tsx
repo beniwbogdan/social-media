@@ -8,9 +8,11 @@ import DialogsContainer from './Components/Dialogs/DialogsContainer';
 
 
 function App(props: any) {
+    const MyContext = React.createContext(props.store);
 
     return (
         <>
+
             <div className="app-wrapper">
                 <Header />
                 <Navbar />
@@ -32,7 +34,9 @@ function App(props: any) {
                         />}>
                     </Route>
                 </Routes>
+
             </div>
+
         </>
     );
 
