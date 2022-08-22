@@ -3,32 +3,27 @@ import './App.css';
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import Profile from "./Components/Profile/Profile";
-import Dialogs from "./Components/Dialogs/Dialogs";
 import { Route, Routes } from "react-router-dom";
+import DialogsContainer from './Components/Dialogs/DialogsContainer';
 
 
-function App(props: any) {
+function App() {
+
 
     return (
         <>
+
             <div className="app-wrapper">
                 <Header />
                 <Navbar />
                 <Routes>
                     <Route path="/profile"
                         element={
-                            <Profile
-                                // addPost={props.addPost}
-                                profilePage={props.appState.profilePage}
-                                dispatch={props.dispatch}
-                            />}>
-
+                            <Profile />}>
                     </Route>
+
                     <Route path="/dialogs" element={
-                        <Dialogs
-                            store={props.store}
-                        // appState={props.appState.messagesPage} 
-                        />}>
+                        <DialogsContainer />}>
                     </Route>
                 </Routes>
             </div>
