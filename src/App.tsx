@@ -7,8 +7,8 @@ import { Route, Routes } from "react-router-dom";
 import DialogsContainer from './Components/Dialogs/DialogsContainer';
 
 
-function App(props: any) {
-    const MyContext = React.createContext(props.store);
+function App() {
+
 
     return (
         <>
@@ -19,24 +19,14 @@ function App(props: any) {
                 <Routes>
                     <Route path="/profile"
                         element={
-                            <Profile
-                                // addPost={props.addPost}
-                                store={props.store}
-                            // profilePage={props.appState.profilePage}
-                            // dispatch={props.dispatch}
-                            />}>
-
+                            <Profile />}>
                     </Route>
+
                     <Route path="/dialogs" element={
-                        <DialogsContainer
-                            store={props.store}
-                        // appState={props.appState.messagesPage} 
-                        />}>
+                        <DialogsContainer />}>
                     </Route>
                 </Routes>
-
             </div>
-
         </>
     );
 
