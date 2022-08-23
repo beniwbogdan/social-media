@@ -11,7 +11,7 @@ const MyPosts = (props: any) => {
     }
 
     let onPostChange = () => {
-        let text = newPostElement?.current?.value;
+        let text = newPostElement.current.value;
         props.updateNewPostText(text);
     }
 
@@ -42,5 +42,5 @@ const MyPosts = (props: any) => {
         </div>
     );
 };
-//export let newPostElement = React.createRef();
+
 export default MyPosts;
