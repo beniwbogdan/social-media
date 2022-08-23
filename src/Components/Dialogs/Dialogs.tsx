@@ -1,23 +1,19 @@
 import React from 'react';
 import d from "./Dialogs.module.css"
-//import {NavLink} from "react-router-dom";
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
-//import { updateNewMessageBodyCreator, sendMessageCreator } from '../../redux/dialogs-reducer'
-
+import { v1 } from 'uuid';
 
 const Dialogs = (props: any) => {
-
     let state = props.messagesPage;
-
     let dialogsElements = state.dialogData.map((w: any) => {
         return (
-            <DialogItem name={w.name} id={w.id} />
+            <DialogItem key={v1()} name={w.name} id={w.id} />
         );
     })
     let messagesElements = state.messagesData.map((w: any) => {
         return (
-            <Message message={w.message} />
+            <Message key={v1()} message={w.message} />
         );
     })
     let newMessageBody = state.newMessageBody;
@@ -28,7 +24,7 @@ const Dialogs = (props: any) => {
     let onNewMessageChange = (e: any) => {
         let body = e.target.value;
         props.updateNewMessageBody(body);
-        // props.store.dispatch(updateNewMessageBodyCreator(body));
+
     }
     return (
         <div className={d.dialogs}>
@@ -48,6 +44,7 @@ const Dialogs = (props: any) => {
                 </div>
                 <div>
                     <div><textarea
+
                         value={newMessageBody}
                         onChange={onNewMessageChange}
                         placeholder={"Enter message"}></textarea></div>
