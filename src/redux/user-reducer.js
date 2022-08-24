@@ -1,7 +1,8 @@
 import { v1 } from "uuid";
 
-const ADD_POST ="ADD-POST";
-const UPDATE_NEW_POST_TEXT="UPDATE-NEW-POST-TEXT";
+const FOLLOW ="FOLLOW";
+const UNFOLLOW ="UNFOLLOW";
+const SET_USERS="SET_USERS";
 
 let initialState ={
     users: [
@@ -14,20 +15,51 @@ let initialState ={
  const userReducer=(state=initialState, action)=>{
 
     switch(action.type){
-        
+        case FOLLOW:
+           return{
+            ...state,
+            users:state.users.map(u=>{
+                if(u.id===action.userID){
+                    return{...u, followed:true}
+                }
+                return u;
+            })
+        };
+
+        case UNFOLLOW:
+            return{
+                ...state,
+                users:state.users.map(u=>{
+                    if(u.id===action.userID){
+                        return{...u, followed:false}
+                    }
+                    return u;
+                })
+            };
+
+            case SET_USERS:
+                return{...state, users:[...state, ...action.users]}
         default: return state;
     }
 }
 
-export const addPostsActionCreator = () => ({
-    type: ADD_POST,
+export const followActionCreator = (userID) => ({
+    type: FOLLOW,
+    userID
 
 })
-export const onPostChangeActionCreator = (text) => ({
-    type: UPDATE_NEW_POST_TEXT,
-    newText: text
+export const unfollowActionCreator = (userID) => ({
+    type: UNFOLLOW,
+    userID
 
 })
+export const setUsersActionCreator = (users) => ({
+    type: SET_USERS,
+    users
+})
+// export const onPostChangeActionCreator = (text) => ({
+//     type: UPDATE_NEW_POST_TEXT,
+//     newText: text
 
-
+// })
 export default userReducer
