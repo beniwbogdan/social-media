@@ -3,7 +3,7 @@ import './App.css';
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import Profile from "./Components/Profile/Profile";
-import Users from "./Components/Users/Users"
+import UsersContainer from "./Components/Users/UsersContainer"
 import { Route, Routes } from "react-router-dom";
 import DialogsContainer from './Components/Dialogs/DialogsContainer';
 
@@ -28,7 +28,7 @@ function App() {
                     </Route>
 
                     <Route path="/users" element={
-                        <Users />}>
+                        <UsersContainer />}>
                     </Route>
                 </Routes>
             </div>
