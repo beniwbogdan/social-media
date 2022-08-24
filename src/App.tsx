@@ -3,6 +3,7 @@ import './App.css';
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import Profile from "./Components/Profile/Profile";
+import Users from "./Components/Users/Users"
 import { Route, Routes } from "react-router-dom";
 import DialogsContainer from './Components/Dialogs/DialogsContainer';
 
@@ -24,6 +25,10 @@ function App() {
 
                     <Route path="/dialogs" element={
                         <DialogsContainer />}>
+                    </Route>
+
+                    <Route path="/users" element={
+                        <Users />}>
                     </Route>
                 </Routes>
             </div>
