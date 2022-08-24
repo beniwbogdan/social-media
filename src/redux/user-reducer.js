@@ -12,7 +12,7 @@ let initialState ={
         {id: v1(),followed:true, fullName:"Name S.", status:"Looking for job", location:{city:"Wieliczka", country:"Polska"}},
     ],newPostText:"FLUX data"
 }
- const userReducer=(state=initialState, action)=>{
+ const usersReducer=(state=initialState, action)=>{
 
     switch(action.type){
         case FOLLOW:
@@ -62,4 +62,4 @@ export const setUsersActionCreator = (users) => ({
 //     newText: text
 
 // })
-export default userReducer
+export default usersReducer
