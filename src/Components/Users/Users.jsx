@@ -14,6 +14,7 @@ let Users = (props) => {
         }
     }
     return <div className={styles.profileUsersPage}>
+        <button onClick={getUsers}>get users</button>
         {
             props.users.map(u => <div key={u.id}>
                 <span className={styles.userItem}>
