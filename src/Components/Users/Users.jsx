@@ -1,4 +1,4 @@
-//import * as axios from "axios";
+import * as axios from "axios";
 import styles from "./users.module.css"
 import userPhoto from "../../assets/user.png"
 
@@ -14,7 +14,6 @@ let Users = (props) => {
         }
     }
     return <div className={styles.profileUsersPage}>
-        <button onClick={getUsers}>get users</button>
         {
             props.users.map(u => <div key={u.id}>
                 <span className={styles.userItem}>
