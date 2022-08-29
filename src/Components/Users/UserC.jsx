@@ -10,10 +10,31 @@ class User extends React.Component {
                 this.props.setUsers(response.data.items);
             })
     }
-
+    getNextUsers() {
+        axios.get("https://social-network.samuraijs.com/api/1.0/users?page=2&count=2")
+            .then(response => {
+                this.props.setUsers(response.data.items);
+            })
+    }
     render() {
+        let pagesCount = (this.props.totalUsersCount) / (this.props.pageSize);
+        let pages = [];
+
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i);
+        }
+
         return (
+
             <div className={styles.profileUsersPage}>
+                <div className={styles.numbersOfPage}>
+                    {pages.map(p => {
+                        return <span className={this.props.currentPage === p && styles.selectedPage}>{p}</span>
+                    })}
+
+
+                </div>
+                <button onClick={this.getNextUsers}>NEXT PAGE</button>
                 {
                     this.props.users.map(u => <div key={u.id}>
                         <span className={styles.userItem}>

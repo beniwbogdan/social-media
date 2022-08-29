@@ -2,12 +2,9 @@
     background-color: aliceblue;
     
 }
-
 .userPhoto{
 width: 80px;
-
 }
-
 .followButton{
     background-color: aqua;
 display: flex;
@@ -23,4 +20,17 @@ margin: 0px;
 padding: 0px;
 width: 80px;
 height: 20px;
+}
+.numbersOfPage{
+display: flex;
+text-align: center;
+justify-content: center;
+
+}
+.numbersOfPage span{
+margin-right: 10px;
+}
+.selectedPage{
+    font-weight: bold;
+    color: black;
 }
