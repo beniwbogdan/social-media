@@ -2,13 +2,16 @@ import { v1 } from "uuid";
 
 const ADD_POST ="ADD-POST";
 const UPDATE_NEW_POST_TEXT="UPDATE-NEW-POST-TEXT";
+const SET_USER_PROFILE="SET_USER_PROFILE";
 
 let initialState ={
     postData: [
         {message: "Hello, this is my 1 post through the props", id: v1(), likesCount: 23},
         {message: "Hello, this is my 2message post through the props", id: v1(), likesCount: 25},
         {message: "Hello, this is my 3 post through the props", id: v1(), likesCount: 27},
-    ],newPostText:"FLUX data"
+    ],
+    newPostText:"FLUX data",
+    profile:null,
 }
  const profileReducer=(state=initialState, action)=>{
 
@@ -26,8 +29,8 @@ let initialState ={
 
         case UPDATE_NEW_POST_TEXT: 
             return{...state, newPostText:action.newText}
-    //       state.newPostText=action.newText;
-    //       return state;
+        case SET_USER_PROFILE:
+            return{...state, profile:action.profile}
         default: return state;
     }
 }
@@ -41,6 +44,12 @@ export const onPostChangeActionCreator = (text) => ({
     newText: text
 
 })
+export const setUserProfile = (profile) => ({
+    type: SET_USER_PROFILE,
+    profile
+
+})
+
 
 
 export default profileReducer
