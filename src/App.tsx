@@ -18,7 +18,7 @@ function App() {
                 <Header />
                 <Navbar />
                 <Routes>
-                    <Route path="/profile"
+                    <Route path="/profile/:userId"
                         element={
                             <ProfileContainer />}>
                     </Route>
