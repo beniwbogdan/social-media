@@ -15,7 +15,7 @@ function Users(props) {
                 {pages.map(p => {
                     return <span
                         className={props.currentPage === p && styles.selectedPage}
-                        onClick={(e) => props.onPageChanged(p)}>{p}</span>
+                        onClick={() => props.onPageChanged(p)}>{p}</span>
                 })}
             </div>
             {
@@ -40,8 +40,10 @@ function Users(props) {
                         <span>
                             <div>{"Krakow"}</div>
                             <div>{"Poland"}</div>
-                            {/* <div>{u.location.country}</div>
-                    <div>{u.location.city}</div> */}
+                            {/* 
+                                <div>{u.location.country}</div>
+                                <div>{u.location.city}</div> 
+                            */}
                         </span>
                     </span>
                 </div>)

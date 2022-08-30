@@ -1,3 +1,19 @@
 .Preloader{
-background-color: red;
+margin-top: 0px;
+padding-top: 0px;
+width: 100px;
+height: -20px;
+position: relative;
+margin: 0 auto;
+
 }
+.Preloader img{
+    display: flex;
+    margin-top: 300px;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+   
+    }

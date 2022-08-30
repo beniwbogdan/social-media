@@ -10,8 +10,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as axios from "axios";
 import Users from './Users';
-import preloader from "../../assets/preloader.gif"
-//import styles from "../Users/userscontainer.module.css"
+import Preloader from "../common/Preloader/Preloader";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -39,7 +38,8 @@ class UsersContainer extends React.Component {
 
             <>
                 {/* <div className={styles.Preloader}></div> */}
-                {this.props.isFetching ? <div><img alt={"preloader"} src={preloader} /></div> : null}
+                {this.props.isFetching ? <Preloader /> : null}
+
                 <Users
                     totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
