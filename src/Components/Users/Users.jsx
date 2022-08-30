@@ -1,5 +1,6 @@
 import styles from "./users.module.css"
 import userPhoto from "../../assets/user.png"
+import { NavLink } from "react-router-dom";
 
 function Users(props) {
     let pagesCount = Math.ceil((props.totalUsersCount) / (props.pageSize));
@@ -15,13 +16,23 @@ function Users(props) {
                 {pages.map(p => {
                     return <span
                         className={props.currentPage === p && styles.selectedPage}
-                        onClick={(e) => props.onPageChanged(p)}>{p}</span>
+                        onClick={() => props.onPageChanged(p)}>{p}</span>
                 })}
             </div>
             {
                 props.users.map(u => <div key={u.id}>
                     <span className={styles.userItem}>
-                        <div ><img src={u.photos.small != null ? u.photos.small : userPhoto} className={styles.userPhoto} alt="User logo without img" /></div>
+                        <div >
+                            <NavLink to={`/profile/${u.id}`}>
+                                <img
+                                    src={u.photos.small != null
+                                        ? u.photos.small
+                                        : userPhoto}
+                                    className={styles.userPhoto}
+                                    alt="User logo without img" />
+                            </NavLink>
+
+                        </div>
                         <div >
                             <button className={styles.followButton}>
                                 {
@@ -40,8 +51,10 @@ function Users(props) {
                         <span>
                             <div>{"Krakow"}</div>
                             <div>{"Poland"}</div>
-                            {/* <div>{u.location.country}</div>
-                    <div>{u.location.city}</div> */}
+                            {/* 
+                                <div>{u.location.country}</div>
+                                <div>{u.location.city}</div> 
+                            */}
                         </span>
                     </span>
                 </div>)

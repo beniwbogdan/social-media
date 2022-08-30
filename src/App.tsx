@@ -2,14 +2,13 @@ import React from 'react';
 import './App.css';
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
-import Profile from "./Components/Profile/Profile";
 import UsersContainer from "./Components/Users/UsersContainer"
 import { Route, Routes } from "react-router-dom";
 import DialogsContainer from './Components/Dialogs/DialogsContainer';
+import ProfileContainer from './Components/Profile/ProfileContainer';
 
 
 function App() {
-
 
     return (
         <>
@@ -18,12 +17,13 @@ function App() {
                 <Header />
                 <Navbar />
                 <Routes>
-                    <Route path="/profile"
-                        element={
-                            <Profile />}>
-                    </Route>
 
-                    <Route path="/dialogs" element={
+                    <Route path="/profile/:userId"
+                        element={
+                            <ProfileContainer />}>
+                    </Route>
+                    <Route path='/profile' element={<ProfileContainer />} />
+                    <Route path='/dialogs' element={
                         <DialogsContainer />}>
                     </Route>
 

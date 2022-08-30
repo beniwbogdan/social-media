@@ -1,17 +1,16 @@
 import {
-    followActionCreator,
-    unfollowActionCreator,
-    setUsersActionCreator,
-    setCurrentPageActionCreator,
-    setUsersTotalCountActionCreator,
-    toggleIsFetchingActionCreator
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setTotalUsersCount,
+    toggleIsFetching
 } from "../../redux/user-reducer";
 import React from 'react';
 import { connect } from 'react-redux';
 import * as axios from "axios";
 import Users from './Users';
-import preloader from "../../assets/preloader.gif"
-//import styles from "../Users/userscontainer.module.css"
+import Preloader from "../common/Preloader/Preloader";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -38,8 +37,7 @@ class UsersContainer extends React.Component {
         return (
 
             <>
-                {/* <div className={styles.Preloader}></div> */}
-                {this.props.isFetching ? <div><img alt={"preloader"} src={preloader} /></div> : null}
+                {this.props.isFetching ? <Preloader /> : null}
                 <Users
                     totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
@@ -63,14 +61,12 @@ let mapStateToProps = (state) => {
         isFetching: state.usersPage.isFetching,
     }
 }
-let mapDispatchToProps = (dispatch) => {
-    return {
-        follow: (userID) => { dispatch(followActionCreator(userID)) },
-        unfollow: (userID) => { dispatch(unfollowActionCreator(userID)) },
-        setUsers: (users) => { dispatch(setUsersActionCreator(users)) },
-        setCurrentPage: (pageNumber) => { dispatch(setCurrentPageActionCreator(pageNumber)) },
-        setTotalUsersCount: (totalCount) => { dispatch(setUsersTotalCountActionCreator(totalCount)) },
-        toggleIsFetching: (isFetching) => { dispatch(toggleIsFetchingActionCreator(isFetching)) }
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+
+export default connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setTotalUsersCount,
+    toggleIsFetching
+})(UsersContainer);
