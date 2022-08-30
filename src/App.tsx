@@ -10,7 +10,6 @@ import ProfileContainer from './Components/Profile/ProfileContainer';
 
 function App() {
 
-
     return (
         <>
 
@@ -18,12 +17,13 @@ function App() {
                 <Header />
                 <Navbar />
                 <Routes>
+
                     <Route path="/profile/:userId"
                         element={
                             <ProfileContainer />}>
                     </Route>
-
-                    <Route path="/dialogs" element={
+                    <Route path='/profile' element={<ProfileContainer />} />
+                    <Route path='/dialogs' element={
                         <DialogsContainer />}>
                     </Route>
 
