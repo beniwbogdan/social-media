@@ -1,8 +1,7 @@
 import styles from "./users.module.css"
 import userPhoto from "../../assets/user.png"
 import { NavLink } from "react-router-dom";
-import * as axios from "axios";
-
+import { follow, unfollow } from "../../api/api";
 function Users(props) {
     let pagesCount = Math.ceil((props.totalUsersCount) / (props.pageSize));
     let pages = [];
@@ -53,31 +52,19 @@ function Users(props) {
                                 {
                                     u.followed
                                         ? <button onClick={() => {
-                                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
-                                                withCredentials: true,
-                                                headers: {
-                                                    "API-KEY": "6d1b1ad3-6bc1-46eb-a308-20ec3cb9e155",
+                                            unfollow(u).then(response => {
+                                                if (response.resultCode === 0) {
+                                                    props.unfollow(u.id)
                                                 }
                                             })
-                                                .then(response => {
-                                                    if (response.data.resultCode === 0) {
-                                                        props.unfollow(u.id)
-                                                    }
-                                                })
 
                                         }} style={{ color: "red" }}><b>unfollow</b></button>
                                         : <button onClick={() => {
-                                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                                                withCredentials: true,
-                                                headers: {
-                                                    "API-KEY": "6d1b1ad3-6bc1-46eb-a308-20ec3cb9e155",
+                                            follow(u).then(response => {
+                                                if (response.resultCode === 0) {
+                                                    props.follow(u.id)
                                                 }
                                             })
-                                                .then(response => {
-                                                    if (response.data.resultCode === 0) {
-                                                        props.follow(u.id)
-                                                    }
-                                                })
                                         }} style={{ color: "green" }}><b>follow</b></button>
                                 }
                             </div>
