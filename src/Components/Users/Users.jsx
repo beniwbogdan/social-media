@@ -48,22 +48,29 @@ function Users(props) {
                             */}
                                 </span>
                             </span>
+                            {/* {props.followingInProgress ?:} */}
                             <div className={styles.followButton}>
                                 {
                                     u.followed
-                                        ? <button onClick={() => {
+                                        ? <button disabled={props.followingInProgress} onClick={() => {
+                                            props.toggleFollowingProgress(true);
                                             usersAPI.unfollow(u).then(response => {
+
                                                 if (response.resultCode === 0) {
                                                     props.unfollow(u.id)
                                                 }
+                                                props.toggleFollowingProgress(false);
                                             })
 
                                         }} style={{ color: "red" }}><b>unfollow</b></button>
-                                        : <button onClick={() => {
+                                        : <button disabled={props.followingInProgress} onClick={() => {
+                                            props.toggleFollowingProgress(true);
                                             usersAPI.follow(u).then(response => {
+
                                                 if (response.resultCode === 0) {
                                                     props.follow(u.id)
                                                 }
+                                                props.toggleFollowingProgress(false);
                                             })
                                         }} style={{ color: "green" }}><b>follow</b></button>
                                 }
