@@ -1,7 +1,7 @@
 import styles from "./users.module.css"
 import userPhoto from "../../assets/user.png"
 import { NavLink } from "react-router-dom";
-import { follow, unfollow } from "../../api/api";
+import { usersAPI } from "../../api/api";
 function Users(props) {
     let pagesCount = Math.ceil((props.totalUsersCount) / (props.pageSize));
     let pages = [];
@@ -52,7 +52,7 @@ function Users(props) {
                                 {
                                     u.followed
                                         ? <button onClick={() => {
-                                            unfollow(u).then(response => {
+                                            usersAPI.unfollow(u).then(response => {
                                                 if (response.resultCode === 0) {
                                                     props.unfollow(u.id)
                                                 }
@@ -60,7 +60,7 @@ function Users(props) {
 
                                         }} style={{ color: "red" }}><b>unfollow</b></button>
                                         : <button onClick={() => {
-                                            follow(u).then(response => {
+                                            usersAPI.follow(u).then(response => {
                                                 if (response.resultCode === 0) {
                                                     props.follow(u.id)
                                                 }
