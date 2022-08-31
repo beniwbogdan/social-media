@@ -1,27 +1,27 @@
 .profileUsersPage{
     background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
 }
 .userPhoto{
 width: 80px;
 }
-.followButton{
-    background-color: aqua;
-display: flex;
-margin: 0px;
-padding: 0px;
-padding: 0px;
+.followButton {
+background-color: aqua;
 width: 80px;
 height: 20px;
+margin-bottom: 20px;
 }
-.followButton:hover{
+/* .followButton:hover{
 display: flex;
 margin: 0px;
 padding: 0px;
 width: 80px;
 height: 20px;
-}
+} */
 .numbersOfPage{
 display: flex;
+
 text-align: center;
 justify-content: center;
 
@@ -32,4 +32,23 @@ margin-right: 10px;
 .selectedPage{
     font-weight: bold;
     color: black;
+}
+.userItem{
+    display: flex;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+
+}
+.userItem img{
+    border-radius: 50%;
+    
+}
+.textData {
+    margin-left: 15px;
+}
+.location{
+    margin-top: 5px;
+display: flex;
+flex-direction: column;
 }

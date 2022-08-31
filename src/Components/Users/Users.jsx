@@ -1,6 +1,7 @@
 import styles from "./users.module.css"
 import userPhoto from "../../assets/user.png"
 import { NavLink } from "react-router-dom";
+import * as axios from "axios";
 
 function Users(props) {
     let pagesCount = Math.ceil((props.totalUsersCount) / (props.pageSize));
@@ -33,30 +34,56 @@ function Users(props) {
                             </NavLink>
 
                         </div>
-                        <div >
-                            <button className={styles.followButton}>
-                                {
-                                    u.followed
-                                        ? <button onClick={() => { props.unfollow(u.id) }}>followed</button>
-                                        : <button onClick={() => { props.follow(u.id) }}>unfollowed</button>
-                                }
-                            </button>
-                        </div>
-                    </span>
-                    <span>
-                        <span>
-                            <div>{u.name}</div>
-                            <div>{u.status}</div>
-                        </span>
-                        <span>
-                            <div>{"Krakow"}</div>
-                            <div>{"Poland"}</div>
-                            {/* 
+                        <div className={styles.textData}>
+                            <span >
+                                <span>
+                                    <div><b>{u.name}</b></div>
+                                    <div>{u.status}</div>
+                                </span>
+                                <span className={styles.location}>
+                                    <div>{"Krakow"}</div>
+                                    <div>{"Poland"}</div>
+                                    {/* 
                                 <div>{u.location.country}</div>
                                 <div>{u.location.city}</div> 
                             */}
-                        </span>
+                                </span>
+                            </span>
+                            <div className={styles.followButton}>
+                                {
+                                    u.followed
+                                        ? <button onClick={() => {
+                                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                                                withCredentials: true,
+                                                headers: {
+                                                    "API-KEY": "6d1b1ad3-6bc1-46eb-a308-20ec3cb9e155",
+                                                }
+                                            })
+                                                .then(response => {
+                                                    if (response.data.resultCode === 0) {
+                                                        props.unfollow(u.id)
+                                                    }
+                                                })
+
+                                        }} style={{ color: "red" }}><b>unfollow</b></button>
+                                        : <button onClick={() => {
+                                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                                withCredentials: true,
+                                                headers: {
+                                                    "API-KEY": "6d1b1ad3-6bc1-46eb-a308-20ec3cb9e155",
+                                                }
+                                            })
+                                                .then(response => {
+                                                    if (response.data.resultCode === 0) {
+                                                        props.follow(u.id)
+                                                    }
+                                                })
+                                        }} style={{ color: "green" }}><b>follow</b></button>
+                                }
+                            </div>
+                        </div>
                     </span>
+
                 </div>)
             }
         </div>

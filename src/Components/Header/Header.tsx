@@ -2,12 +2,15 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import h from "./Header.module.css";
 
-const Header = () => {
+const Header = (props: any) => {
     return (
         <header className={h.header}>
-            <div className={h.loginBlock}>
-                <NavLink to={"/login"}>Login</NavLink>
-            </div>
+
+            {
+                props.isAuth ? <div className={h.loginBlock}>Welcone {props.login}</div> : <NavLink to={"/login"}>Login</NavLink>
+            }
+
+
             <div className={h.eyePosition}>
 
 

@@ -1,6 +1,7 @@
 .header {
     grid-area: h;
     background-color: #A8ADD3;
+    
 }
 
 .header .eyePosition{

@@ -15,5 +15,5 @@ margin: 0 auto;
     width: 100px;
     height: 100px;
     position: absolute;
-   
+    z-index: 9;
     }
