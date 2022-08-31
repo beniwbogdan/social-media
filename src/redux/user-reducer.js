@@ -44,7 +44,7 @@ let initialState ={
             case SET_TOTAL_USERS_COUNT:
                 return{...state,totalUsersCount:action.count>50?action.count=50:action.count }
             case TOGGLE_IS_FETCHING:
-                return{...state, isFetchin:action.isFetching}
+                return{...state, isFetching:action.isFetching}
         default: return state;
     }
 }
