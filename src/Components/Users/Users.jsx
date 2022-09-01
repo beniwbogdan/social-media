@@ -52,25 +52,25 @@ function Users(props) {
                             <div className={styles.followButton}>
                                 {
                                     u.followed
-                                        ? <button disabled={props.followingInProgress} onClick={() => {
-                                            props.toggleFollowingProgress(true);
+                                        ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                                            props.toggleFollowingProgress(true, u.id);
                                             usersAPI.unfollow(u).then(response => {
 
                                                 if (response.resultCode === 0) {
                                                     props.unfollow(u.id)
                                                 }
-                                                props.toggleFollowingProgress(false);
+                                                props.toggleFollowingProgress(false, u.id);
                                             })
 
                                         }} style={{ color: "red" }}><b>unfollow</b></button>
-                                        : <button disabled={props.followingInProgress} onClick={() => {
-                                            props.toggleFollowingProgress(true);
+                                        : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
+                                            props.toggleFollowingProgress(true, u.id);
                                             usersAPI.follow(u).then(response => {
 
                                                 if (response.resultCode === 0) {
                                                     props.follow(u.id)
                                                 }
-                                                props.toggleFollowingProgress(false);
+                                                props.toggleFollowingProgress(false, u.id);
                                             })
                                         }} style={{ color: "green" }}><b>follow</b></button>
                                 }

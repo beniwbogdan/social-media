@@ -12,7 +12,7 @@ let initialState ={
     totalUsersCount:0,
     currentPage:1,
     isFetching: false,
-    followingInProgress:false,
+    followingInProgress:[],
 }
  const usersReducer=(state=initialState, action)=>{
 
@@ -45,10 +45,13 @@ let initialState ={
                 return{...state, currentPage:action.currentPage}
             case SET_TOTAL_USERS_COUNT:
                 return{...state,totalUsersCount:action.count>50?action.count=50:action.count }
+            case TOGGLE_IS_FETCHING:
+                return{...state, isFetching:action.isFetching} 
             case TOGGLE_IS_FOLLOWING_PROGRESS:
-                return{...state, followingInProgress:action.followingInProgress}
-                case TOGGLE_IS_FETCHING:
-                return{...state, isFetching:action.isFetching}
+                return{...state, 
+                            followingInProgress:action.isFetching
+                                ?[...state.followingInProgress, action.userID]
+                                :state.followingInProgress.filter(id=>id!==action.userID)}
         default: return state;
     }
 }
