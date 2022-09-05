@@ -44,6 +44,7 @@ let initialState ={
             case SET_USERS:
                 return{...state, users:[...action.users]}
             case SET_CURRENT_PAGE:
+                console.log("action", action);
                 return{...state, currentPage:action.currentPage}
             case SET_TOTAL_USERS_COUNT:
                 return{...state,totalUsersCount:action.count>50?action.count=50:action.count }
@@ -91,6 +92,7 @@ export const toggleFollowingProgress = (followingInProgress) => ({
 //thunk
 export const getUsers=(currentPage,pageSize)=>{
 return (dispatch)=>{
+    
     dispatch(toggleIsFetching(true));
     usersAPI.getUsers(currentPage, pageSize).then(response => {
         dispatch(toggleIsFetching(false));

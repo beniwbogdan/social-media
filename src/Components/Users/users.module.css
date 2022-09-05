@@ -33,6 +33,11 @@ margin-right: 10px;
     font-weight: bold;
     color: black;
 }
+
+.nonSelectedPage{
+    color: red;
+}
+
 .userItem{
     display: flex;
     border: 1px solid black;
