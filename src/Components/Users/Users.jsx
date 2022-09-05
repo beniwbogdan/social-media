@@ -1,7 +1,6 @@
 import styles from "./users.module.css"
 import userPhoto from "../../assets/user.png"
 import { NavLink } from "react-router-dom";
-import { usersAPI } from "../../api/api";
 function Users(props) {
     let pagesCount = Math.ceil((props.totalUsersCount) / (props.pageSize));
     let pages = [];
@@ -52,27 +51,15 @@ function Users(props) {
                             <div className={styles.followButton}>
                                 {
                                     u.followed
-                                        ? <button disabled={props.followingInProgress} onClick={() => {
-                                            props.toggleFollowingProgress(true);
-                                            usersAPI.unfollow(u).then(response => {
+                                        ? <button disabled={props.followingInProgress.some(id => id === u.id)}
+                                            onClick={() => { props.unfollow(u.id); }}
+                                            style={{ color: "red" }}>
+                                            <b>unfollow</b></button>
 
-                                                if (response.resultCode === 0) {
-                                                    props.unfollow(u.id)
-                                                }
-                                                props.toggleFollowingProgress(false);
-                                            })
-
-                                        }} style={{ color: "red" }}><b>unfollow</b></button>
-                                        : <button disabled={props.followingInProgress} onClick={() => {
-                                            props.toggleFollowingProgress(true);
-                                            usersAPI.follow(u).then(response => {
-
-                                                if (response.resultCode === 0) {
-                                                    props.follow(u.id)
-                                                }
-                                                props.toggleFollowingProgress(false);
-                                            })
-                                        }} style={{ color: "green" }}><b>follow</b></button>
+                                        : <button disabled={props.followingInProgress.some(id => id === u.id)}
+                                            onClick={() => { props.follow(u.id); }}
+                                            style={{ color: "green" }}>
+                                            <b>follow</b></button>
                                 }
                             </div>
                         </div>

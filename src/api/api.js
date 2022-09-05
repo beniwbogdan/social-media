@@ -7,7 +7,6 @@ const instanse = axios.create({
                 "API-KEY": "6d1b1ad3-6bc1-46eb-a308-20ec3cb9e155",
             }
 });
-
 export const usersAPI={
         getUsers:(currentPage,pageSize)=>{
             return(
@@ -15,21 +14,30 @@ export const usersAPI={
                     return response.data 
                     })
             );}, 
-        unfollow:(u)=>{
+        unfollow:(userID)=>{
             return(
-                instanse.delete(`follow/${u.id}`).then(response=>{
+                instanse.delete(`follow/${userID}`).then(response=>{
                     return response.data 
                 })
         );},
-        follow:(u)=>{
+        follow:(userID)=>{
             return(
-                instanse.post(`follow/${u.id}`).then(response=>{
+                instanse.post(`follow/${userID}`).then(response=>{
                     return response.data 
                 })
             );},
+        getProfile:(userID)=>{
+            return(
+                instanse.get('profile/'+userID).then(response=>{
+                    return response.data 
+                }) 
+            );},
+            
  
 }
-
+export const authAPI={
+    me(){ return( instanse.get('auth/me')); },
+}
 
 
 
