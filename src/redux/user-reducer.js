@@ -19,6 +19,7 @@ let initialState ={
 
     switch(action.type){
         case FOLLOW:
+            
            return{
             ...state,
             users:state.users.map(u=>{
@@ -57,12 +58,12 @@ let initialState ={
     }
 }
 //actions
-export const follow = (userID) => ({
+export const followSuccess = (userID) => ({
     type: FOLLOW,
     userID
 
 })
-export const unfollow = (userID) => ({
+export const unfollowSuccess = (userID) => ({
     type: UNFOLLOW,
     userID
 
@@ -88,7 +89,7 @@ export const toggleFollowingProgress = (followingInProgress) => ({
     followingInProgress
 })
 //thunk
-export const getUsersThunkCreator=(currentPage,pageSize)=>{
+export const getUsers=(currentPage,pageSize)=>{
 return (dispatch)=>{
     dispatch(toggleIsFetching(true));
     usersAPI.getUsers(currentPage, pageSize).then(response => {
@@ -99,5 +100,29 @@ return (dispatch)=>{
 }
 }
 
+export const follow=(userID)=>{
+    return (dispatch)=>{
+        dispatch(toggleFollowingProgress(true, userID));
+        usersAPI.follow(userID).then(response => {
+            if (response.resultCode === 0) {
+                dispatch(followSuccess(userID));
+            }
+            dispatch(toggleFollowingProgress(false, userID));
+        });
+    }
+    
+}  
 
+export const unfollow=(userID)=>{
+    return (dispatch)=>{
+        dispatch(toggleFollowingProgress(true, userID));
+        usersAPI.unfollow(userID).then(response => {
+            if (response.resultCode === 0) {
+                dispatch(unfollowSuccess(userID));
+            }
+            dispatch(toggleFollowingProgress(false, userID));
+        });
+    }
+
+}
 export default usersReducer
