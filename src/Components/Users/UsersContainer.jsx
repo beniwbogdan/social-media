@@ -5,7 +5,9 @@ import {
     setCurrentPage,
     setTotalUsersCount,
     toggleIsFetching,
-    toggleFollowingProgress
+    toggleFollowingProgress,
+    getUsersThunkCreator
+
 } from "../../redux/user-reducer";
 import React from 'react';
 import { connect } from 'react-redux';
@@ -14,12 +16,10 @@ import Preloader from "../common/Preloader/Preloader";
 import { usersAPI } from "../../api/api";
 
 class UsersContainer extends React.Component {
+
     componentDidMount() {
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(response => {
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(response.items);
-            this.props.setTotalUsersCount(response.totalCount);
-        })
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
+
     }
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber)
@@ -71,5 +71,6 @@ export default connect(mapStateToProps, {
     setCurrentPage,
     setTotalUsersCount,
     toggleIsFetching,
-    toggleFollowingProgress
+    toggleFollowingProgress,
+    getUsers: getUsersThunkCreator
 })(UsersContainer);
