@@ -2,7 +2,7 @@ import { authAPI } from '../api/api';
 
 const SET_USER_DATA ="SET_USER_DATA";
 
-// const TOGGLE_IS_FETCHING="TOGGLE_IS_FETCHING";
+ //const TOGGLE_IS_FETCHING="TOGGLE_IS_FETCHING";
 let initialState ={
     id:null,
     login:null,
@@ -15,8 +15,8 @@ let initialState ={
     switch(action.type){
         case SET_USER_DATA:
             return{...state, ...action.data,isAuth:true};
-        // case TOGGLE_IS_FETCHING:
-        //     return{...state, isFetching:action.isFetching}
+        //  case TOGGLE_IS_FETCHING:
+        //      return{...state, isFetching:action.isFetching}
         default: return state;
     }
 }
@@ -43,8 +43,8 @@ export const getAuthUserData =()=>{
 
 }
 
-// export const toggleIsFetching = (isFetching) => ({
-//     type: TOGGLE_IS_FETCHING,
-//     isFetching
-// })
+//  export const toggleIsFetching = (isFetching) => ({
+//      type: TOGGLE_IS_FETCHING,
+//      isFetching
+//  })
 export default authReducer
