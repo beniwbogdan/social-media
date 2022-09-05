@@ -26,9 +26,18 @@ export const usersAPI={
                     return response.data 
                 })
             );},
+        getProfile:(userID)=>{
+            return(
+                instanse.get('profile/'+userID).then(response=>{
+                    return response.data 
+                }) 
+            );},
+            
  
 }
-
+export const authAPI={
+    me(){ return( instanse.get('auth/me')); },
+}
 
 
 

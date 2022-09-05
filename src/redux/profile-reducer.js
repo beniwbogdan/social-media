@@ -1,8 +1,9 @@
 import { v1 } from "uuid";
-
+import { usersAPI } from "../api/api";
 const ADD_POST ="ADD-POST";
 const UPDATE_NEW_POST_TEXT="UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE="SET_USER_PROFILE";
+//const GET_USER_PROFILE = "GET_USER_PROFILE";
 
 let initialState ={
     postData: [
@@ -49,6 +50,22 @@ export const setUserProfile = (profile) => ({
     profile
 
 })
+// export const getUserProfile = (userId) => ({
+//     type: GET_USER_PROFILE,
+//     userId
+
+// })
+
+export const getUserProfile=(userID)=>{
+    return (dispatch)=>{
+        usersAPI.getProfile(userID)
+            .then(response => {
+                dispatch(setUserProfile(response));
+            })
+    }
+
+}
+
 
 
 
