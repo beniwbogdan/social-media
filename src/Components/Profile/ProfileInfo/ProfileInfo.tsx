@@ -2,17 +2,20 @@ import React from 'react';
 import Preloader from '../../common/Preloader/Preloader';
 import p from "./ProfileInfo.module.css"
 import userPhoto from "../../../assets/user.png"
+import ProfileStatus from "./ProfileStatus"
 
 const ProfileInfo = (props: any) => {
     if (!props.profile) {
         return <Preloader />
     }
+
     return (
         <div>
             <div>
                 <img src="https://wallpaper.dog/large/20536905.jpg" alt="" />
             </div>
             <div className={p.descriptionBlock}>
+                <ProfileStatus status={"Status examp"} />
                 <img alt='profile pic' src={props.profile.photos.large ? props.profile.photos.large : userPhoto} /><br />
                 <span><b>Name :</b>  {props.profile.fullName}</span><br />
                 <span><b>Describtion :</b> {props.profile.lookingForAJobDescription}</span><br />
