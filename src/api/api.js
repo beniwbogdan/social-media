@@ -27,17 +27,35 @@ export const usersAPI={
                 })
             );},
         getProfile:(userID)=>{
-            return(
-                instanse.get('profile/'+userID).then(response=>{
-                    return response.data 
-                }) 
-            );},
+                    return profileAPI.getProfile(userID); 
+            },
             
  
 }
 export const authAPI={
     me(){ return( instanse.get('auth/me')); },
 }
-
+export const profileAPI={
+    getProfile:(userID)=>{
+        return(
+            instanse.get('profile/'+userID).then(response=>{
+                return response.data 
+            }) 
+        );},
+    getStatus:(userID)=>{
+        return(
+            instanse.get('profile/status/' + userID).then(response=>{
+                return response.data 
+            }) 
+        );},
+    updateStatus:(status)=>{
+        return(
+            instanse.put('profile/status/',{status:status}).then(response=>{
+                return response.data 
+            }) 
+        );},
+   
+        
+}
 
 

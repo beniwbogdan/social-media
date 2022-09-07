@@ -1,8 +1,10 @@
 import { v1 } from "uuid";
-import { usersAPI } from "../api/api";
+import { usersAPI,profileAPI } from "../api/api";
 const ADD_POST ="ADD-POST";
 const UPDATE_NEW_POST_TEXT="UPDATE-NEW-POST-TEXT";
 const SET_USER_PROFILE="SET_USER_PROFILE";
+const SET_STATUS="SET_STATUS";
+const UPDATE_STATUS="UPDATE_STATUS";
 //const GET_USER_PROFILE = "GET_USER_PROFILE";
 
 let initialState ={
@@ -13,6 +15,7 @@ let initialState ={
     ],
     newPostText:"FLUX data",
     profile:null,
+    status:"",
 }
  const profileReducer=(state=initialState, action)=>{
 
@@ -32,6 +35,10 @@ let initialState ={
             return{...state, newPostText:action.newText}
         case SET_USER_PROFILE:
             return{...state, profile:action.profile}
+        case SET_STATUS:
+            return{...state, status:action.status}
+        case UPDATE_STATUS:
+            return{...state, status:action.status}
         default: return state;
     }
 }
@@ -50,6 +57,16 @@ export const setUserProfile = (profile) => ({
     profile
 
 })
+export const setStatus = (status) => ({
+    type: SET_STATUS,
+    status
+
+})
+export const updateStatus = (status) => ({
+    type: UPDATE_STATUS,
+    status
+
+})
 // export const getUserProfile = (userId) => ({
 //     type: GET_USER_PROFILE,
 //     userId
@@ -61,6 +78,26 @@ export const getUserProfile=(userID)=>{
         usersAPI.getProfile(userID)
             .then(response => {
                 dispatch(setUserProfile(response));
+            })
+    }
+
+}
+export const getStatus=(status)=>{
+    return (dispatch)=>{
+        profileAPI.getStatus(status)
+            .then(response => {
+                
+                dispatch(setStatus(response));
+            })
+    }
+
+}
+export const updateUserStatus=(status)=>{
+    return (dispatch)=>{
+        profileAPI.updateStatus(status)
+            .then(response => {
+                if(response.resultCode===0)
+                dispatch(setStatus(status));
             })
     }
 
